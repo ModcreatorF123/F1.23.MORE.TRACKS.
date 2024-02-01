@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zdjęcie i Filmik</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        #fullscreenImage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Obrazek w trybie pełnoekranowym -->
+    <img id="fullscreenImage" src="czarnuch.jpg" alt="Czarnuch" onclick="startVideo()">
+
+    <script>
+        // Funkcja do uruchamiania wideo po kliknięciu w pełnoekranowy obrazek
+        function startVideo() {
+            var fullscreenImage = document.getElementById('fullscreenImage');
+            fullscreenImage.style.display = 'none';
+
+            var video = document.createElement("video");
+            video.src = "jumpscare.mp4";
+            video.type = "video/mp4";
+            video.autoplay = true;
+            video.controls = true;
+            video.style.width = '100vw';
+            video.style.height = '100vh';
+
+            document.body.appendChild(video);
+        }
+    </script>
+</body>
+</html>
